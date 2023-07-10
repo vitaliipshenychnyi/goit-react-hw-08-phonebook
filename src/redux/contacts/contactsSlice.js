@@ -42,48 +42,34 @@ export const deleteContact = createAsyncThunk(
 
 const contactsInitialState = { items: [], isLoading: false, error: null };
 
+const handlePending = state => {
+  state.isLoading = true;
+};
+
+const handleFulfilled = (state, { payload }) => {
+  state.isLoading = false;
+  state.items = payload;
+  state.error = '';
+};
+
+const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactsInitialState,
-
-  extraReducers: {
-    [fetchContacts.pending]: state => {
-      state.isLoading = true;
-    },
-    [fetchContacts.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
-      state.items = payload;
-      state.error = '';
-    },
-    [fetchContacts.error]: (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    },
-
-    [addContact.pending]: state => {
-      state.isLoading = true;
-    },
-    [addContact.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
-      state.items = payload;
-      state.error = '';
-    },
-    [addContact.error]: (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    },
-
-    [deleteContact.pending]: state => {
-      state.isLoading = true;
-    },
-    [deleteContact.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
-      state.items = payload;
-      state.error = '';
-    },
-    [deleteContact.error]: (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchContacts.pending, handlePending)
+      .addCase(fetchContacts.fulfilled, handleFulfilled)
+      .addCase(fetchContacts.rejected, handleRejected)
+      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.fulfilled, handleFulfilled)
+      .addCase(addContact.rejected, handleRejected)
+      .addCase(deleteContact.pending, handlePending)
+      .addCase(deleteContact.fulfilled, handleFulfilled)
+      .addCase(deleteContact.rejected, handleRejected);
   },
 });

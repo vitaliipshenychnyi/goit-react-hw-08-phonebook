@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contactsSlice';
+import { RegistrationForm } from './auth/RegistrationForm';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export const App = () => {
 
   return (
     <Container>
+      <RegistrationForm />
       <h1>Phonebook</h1>
       <ContactForm />
 
