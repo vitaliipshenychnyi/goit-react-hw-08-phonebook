@@ -33,18 +33,17 @@ export const RegistrationForm = () => {
     }
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log({ name, email, password });
-    reset();
-  };
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   console.log({ name, email, password });
+  //   reset();
+  // };
 
-  // функція очищення значень форми
-  const reset = () => {
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
+  // const reset = () => {
+  //   setName('');
+  //   setEmail('');
+  //   setPassword('');
+  // };
 
   return (
     <div>
