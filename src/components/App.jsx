@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contactsSlice';
 import { RegistrationForm } from './auth/RegistrationForm';
+import { LogInForm } from './auth/LogInForm';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export const App = () => {
   return (
     <Container>
       <RegistrationForm />
+      <LogInForm />
       <h1>Phonebook</h1>
       <ContactForm />
 
