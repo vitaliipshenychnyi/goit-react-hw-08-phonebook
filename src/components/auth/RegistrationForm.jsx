@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Title,
   FormWrapper,
@@ -6,72 +5,44 @@ import {
   TitleInput,
   InputField,
 } from './RegistrationForm.styled';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 
 export const RegistrationForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
-  const handleChange = event => {
-    const { name, value } = event.currentTarget;
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
 
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-
-      case 'email':
-        setEmail(value);
-        break;
-
-      case 'password':
-        setPassword(value);
-        break;
-
-      default:
-        return;
-    }
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
   };
-
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   console.log({ name, email, password });
-  //   reset();
-  // };
-
-  // const reset = () => {
-  //   setName('');
-  //   setEmail('');
-  //   setPassword('');
-  // };
 
   return (
     <div>
       <Title>Registration form of User</Title>
-      <FormWrapper>
+      <FormWrapper onSubmit={handleSubmit} autoComplete="off">
         <TitleInput>
           Name
-          <InputField
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-          />
+          <InputField type="text" name="name" />
         </TitleInput>
         <TitleInput>
           Email
-          <InputField name="email" value={email} onChange={handleChange} />
+          <InputField type="email" name="email" />
         </TitleInput>
         <TitleInput>
           Password
-          <InputField
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
+          <InputField type="password" name="password" />
         </TitleInput>
 
-        <ButtonAdd type="submit">Add User</ButtonAdd>
+        <ButtonAdd type="submit">Register</ButtonAdd>
       </FormWrapper>
     </div>
   );
