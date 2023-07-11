@@ -12,7 +12,7 @@ import { Filter } from 'components/filter/Filter';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  
+
   const contacts = useSelector(selectContacts);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
