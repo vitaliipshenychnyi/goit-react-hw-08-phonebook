@@ -1,6 +1,7 @@
+import { ContactsList } from 'components/contactList/ContactList';
+
 const ContactsPage = () => {
-    // return <FilmList />;
-    return <p>Contacts Page</p>;
-  };
-  
-  export default ContactsPage;
+  // return <ContactsList />;
+};
+
+export default ContactsPage;

@@ -1,6 +1,7 @@
+import { LogInForm } from 'components/auth/LogInForm';
+
 const LoginPage = () => {
-  // return <FilmList />;
-  return <p>Login Page</p>;
+  return <LogInForm />;
 };
 
 export default LoginPage;

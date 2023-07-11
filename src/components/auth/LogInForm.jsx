@@ -6,63 +6,39 @@ import {
   TitleInput,
   InputField,
 } from './RegistrationForm.styled';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
 
 export const LogInForm = () => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
-  const handleChange = event => {
-    const { name, value } = event.currentTarget;
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
 
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-
-      case 'password':
-        setPassword(value);
-        break;
-
-      default:
-        return;
-    }
+    dispatch(
+      logIn({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
   };
-
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   console.log({ name, email, password });
-  //   reset();
-  // };
-
-  // const reset = () => {
-  //   setName('');
-  //   setEmail('');
-  //   setPassword('');
-  // };
 
   return (
     <div>
       <Title>LogIn form of User</Title>
-      <FormWrapper>
+      <FormWrapper onSubmit={handleSubmit} autoComplete="off">
         <TitleInput>
-          Name
-          <InputField
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-          />
+          email
+          <InputField type="email" name="email" />
         </TitleInput>
         <TitleInput>
           Password
-          <InputField
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
+          <InputField type="password" name="password" />
         </TitleInput>
 
-        <ButtonAdd type="submit">LogIn</ButtonAdd>
+        <ButtonAdd type="submit">Log In</ButtonAdd>
       </FormWrapper>
     </div>
   );

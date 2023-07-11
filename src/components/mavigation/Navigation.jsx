@@ -1,5 +1,13 @@
-import { StyledLink } from './Navigation.styled';
+import { StyledLink, Nav } from './Navigation.styled';
+import { useAuth } from 'components/hooks/useAurh';
 
 export const Navigation = () => {
-  return <StyledLink to="/">Home</StyledLink>;
+  const { isLoggedIn } = useAuth();
+
+  return (
+    <Nav>
+      <StyledLink to="/">Home</StyledLink>
+      {isLoggedIn && <StyledLink to="/contacts">Contacts</StyledLink>}
+    </Nav>
+  );
 };

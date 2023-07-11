@@ -9,3 +9,11 @@ export const StyledLink = styled(NavLink)`
     color: orange;
   }
 `;
+
+export const Nav = styled.nav`
+  background-color: #edf3fb;
+  display: flex;
+  font-size: 0;
+  align-items: center;
+  gap: 16px;
+`;
