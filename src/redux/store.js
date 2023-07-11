@@ -14,6 +14,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { filterSlice } from './filter/filterSlice';
 
 const authPersistConfig = { key: 'auth', storage, whitelist: ['token'] };
 
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedContactsReducer,
     contacts: contactsSlice.reducer,
+    filter: filterSlice.reducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({

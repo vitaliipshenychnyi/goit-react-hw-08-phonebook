@@ -20,7 +20,7 @@ export const ContactsList = () => {
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(contactSearch.toLowerCase())
   );
-
+  
   const loading = useSelector(selectLoading);
 
   return (
