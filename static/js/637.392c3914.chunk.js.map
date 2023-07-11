@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/637.392c3914.chunk.js","mappings":"0JAKA,UALkB,WAEhB,OAAOA,EAAAA,EAAAA,KAAA,KAAAC,SAAG,cACZ,C","sources":["pages/LoginPage.jsx"],"sourcesContent":["const LoginPage = () => {\n  // return <FilmList />;\n  return <p>Login Page</p>;\n};\n\nexport default LoginPage;\n"],"names":["_jsx","children"],"sourceRoot":""}
