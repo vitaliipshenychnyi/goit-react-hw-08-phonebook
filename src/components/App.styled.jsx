@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   padding: 20px;
-  height: 80vh;
+  /* height: 80vh; */
   width: 80vw;
   background-color: #fff;
   border-radius: 15px;

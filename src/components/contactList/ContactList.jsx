@@ -38,7 +38,6 @@ export const ContactsList = () => {
               </button>
             </div>
           )}
-          {/* {loading && <button type="button">Delete</button>} */}
         </ContactItem>
       ))}
     </ListOfContact>
