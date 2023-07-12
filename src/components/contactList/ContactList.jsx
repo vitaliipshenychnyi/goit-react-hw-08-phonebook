@@ -20,7 +20,7 @@ export const ContactsList = () => {
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(contactSearch.toLowerCase())
   );
-  
+
   const loading = useSelector(selectLoading);
 
   return (
@@ -29,14 +29,16 @@ export const ContactsList = () => {
         <ContactItem key={contact.id}>
           {contact.name}: {contact.number}
           {!loading && (
-            <button
-              type="button"
-              onClick={() => dispatch(deleteContact(contact.id))}
-            >
-              Delete
-            </button>
+            <div>
+              <button
+                type="button"
+                onClick={() => dispatch(deleteContact(contact.id))}
+              >
+                Delete
+              </button>
+            </div>
           )}
-          {loading && <button type="button">Delete</button>}
+          {/* {loading && <button type="button">Delete</button>} */}
         </ContactItem>
       ))}
     </ListOfContact>

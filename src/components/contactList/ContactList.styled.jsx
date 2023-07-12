@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ListOfContact = styled.ul`
+margin-left: auto;
+    margin-right: auto;
+    width: 500px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #879cb7;

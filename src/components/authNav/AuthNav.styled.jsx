@@ -9,3 +9,11 @@ export const StyledLink = styled(NavLink)`
     color: orange;
   }
 `;
+
+export const WrapperAuthNav = styled.ul`
+  background-color: #edf3fb;
+
+  display: flex;
+  font-size: 0;
+  gap: 16px;
+`;

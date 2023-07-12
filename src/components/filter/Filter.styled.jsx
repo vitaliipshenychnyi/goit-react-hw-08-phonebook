@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const TitleFindInput = styled.label`
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+    margin-right: auto;
+    width: 540px;
   margin-bottom: 20px;
   gap: 5px;
   font-size: 20px;
