@@ -1,31 +1,17 @@
 import { ListOfContact, ContactItem } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsSlice';
-import {
-  selectFilterValue,
-  selectContacts,
-  selectLoading,
-} from 'redux/selectors/selectors';
+import { selectVisibleContact, selectLoading } from 'redux/selectors/selectors';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
 
-  // отримання значення тексту із state.filter для пошуку збігу у іменах контактів
-  const contactSearch = useSelector(selectFilterValue);
-
-  // отримання переліку контактів
-  const contacts = useSelector(selectContacts);
-
-  // створення нового списку контактів із тих контактів, імена яких включають текст із state.filter
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(contactSearch.toLowerCase())
-  );
-
+  const contacts = useSelector(selectVisibleContact);
   const loading = useSelector(selectLoading);
 
   return (
     <ListOfContact>
-      {visibleContacts.map(contact => (
+      {contacts.map(contact => (
         <ContactItem key={contact.id}>
           {contact.name}: {contact.number}
           {!loading && (
