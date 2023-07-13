@@ -24,4 +24,8 @@ export const Container = styled.section`
     font-size: 32px;
     font-weight: 700;
   }
+  p {
+    font-size: 18px;
+    text-align: center;
+  }
 `;
