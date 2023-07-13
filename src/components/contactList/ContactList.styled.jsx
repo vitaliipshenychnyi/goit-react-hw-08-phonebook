@@ -24,6 +24,7 @@ export const ContactItem = styled.li`
         border-color: #879cb7;
         text-align: center;
         font-size: 12px;
+        margin-left: 10px;
         cursor: pointer;
         background-color: #edf3fb;
         outline: none;
